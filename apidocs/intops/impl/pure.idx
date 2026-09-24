@@ -1,4 +1,4 @@
-nimTitle	pure	intops/impl/pure.html	module src/intops/impl/pure		0
+nimTitle	pure	intops/impl/pure.html	module intops/impl/pure		0
 nim	overflowingAdd	intops/impl/pure.html#overflowingAdd,T,T	proc overflowingAdd[T: SomeUnsignedInt](a, b: T): (T, bool)		16
 nim	overflowingAdd	intops/impl/pure.html#overflowingAdd,T,T_2	proc overflowingAdd[T: SomeSignedInt](a, b: T): (T, bool)		23
 nim	carryingAdd	intops/impl/pure.html#carryingAdd,T,T,bool	proc carryingAdd[T: SomeUnsignedInt](a, b: T; carry: bool): (T, bool)		30

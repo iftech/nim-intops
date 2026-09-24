@@ -1,4 +1,4 @@
-nimTitle	consts	intops/consts.html	module src/intops/consts		0
+nimTitle	consts	intops/consts.html	module intops/consts		0
 nim	cpuX86	intops/consts.html#cpuX86	const cpuX86		13
 nim	cpuArm64	intops/consts.html#cpuArm64	const cpuArm64		14
 nim	cpu64Bit	intops/consts.html#cpu64Bit	const cpu64Bit		15

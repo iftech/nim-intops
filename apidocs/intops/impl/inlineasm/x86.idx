@@ -1,4 +1,4 @@
-nimTitle	x86	intops/impl/inlineasm/x86.html	module src/intops/impl/inlineasm/x86		0
+nimTitle	x86	intops/impl/inlineasm/x86.html	module intops/impl/inlineasm/x86		0
 nim	carryingAdd	intops/impl/inlineasm/x86.html#carryingAdd,uint64,uint64,bool	proc carryingAdd(a, b: uint64; carry: bool): (uint64, bool)		17
 nim	carryingAdd	intops/impl/inlineasm/x86.html#carryingAdd,int64,int64,bool	proc carryingAdd(a, b: int64; carry: bool): (int64, bool)		34
 nim	borrowingSub	intops/impl/inlineasm/x86.html#borrowingSub,uint64,uint64,bool	proc borrowingSub(a, b: uint64; borrow: bool): (uint64, bool)		51

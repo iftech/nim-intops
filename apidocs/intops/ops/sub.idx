@@ -1,4 +1,4 @@
-nimTitle	sub	intops/ops/sub.html	module src/intops/ops/sub		0
+nimTitle	sub	intops/ops/sub.html	module intops/ops/sub		0
 nim	overflowingSub	intops/ops/sub.html#overflowingSub.t,T,T	template overflowingSub[T: SomeInteger](a, b: T): tuple[res: T, didOverflow: bool]		14
 nim	saturatingSub	intops/ops/sub.html#saturatingSub.t,T,T	template saturatingSub[T: SomeInteger](a, b: T): T		34
 nim	borrowingSub	intops/ops/sub.html#borrowingSub.t,uint64,uint64,bool	template borrowingSub(a, b: uint64; borrow: bool): tuple[res: uint64, borrow: bool]		54

@@ -1,4 +1,4 @@
-nimTitle	x86	intops/impl/intrinsics/x86.html	module src/intops/impl/intrinsics/x86		0
+nimTitle	x86	intops/impl/intrinsics/x86.html	module intops/impl/intrinsics/x86		0
 nim	builtinCarryingAdd	intops/impl/intrinsics/x86.html#builtinCarryingAdd,uint8,cuint,cuint,ptr.cuint	proc builtinCarryingAdd(carry: uint8; a, b: cuint; res: ptr cuint): uint8		20
 nim	builtinBorrowingSub	intops/impl/intrinsics/x86.html#builtinBorrowingSub,uint8,cuint,cuint,ptr.uint32	proc builtinBorrowingSub(borrow: uint8; a, b: cuint; res: ptr uint32): uint8		24
 nim	carryingAdd	intops/impl/intrinsics/x86.html#carryingAdd,uint32,uint32,bool	proc carryingAdd(a, b: uint32; carry: bool): (uint32, bool)		30

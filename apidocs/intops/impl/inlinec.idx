@@ -1,4 +1,4 @@
-nimTitle	inlinec	intops/impl/inlinec.html	module src/intops/impl/inlinec		0
+nimTitle	inlinec	intops/impl/inlinec.html	module intops/impl/inlinec		0
 nim	carryingAdd	intops/impl/inlinec.html#carryingAdd,uint64,uint64,bool	proc carryingAdd(a, b: uint64; carry: bool): (uint64, bool)		17
 nim	borrowingSub	intops/impl/inlinec.html#borrowingSub,uint64,uint64,bool	proc borrowingSub(a, b: uint64; borrow: bool): (uint64, bool)		40
 nim	wideningMul	intops/impl/inlinec.html#wideningMul,uint64,uint64	proc wideningMul(a, b: uint64): (uint64, uint64)		65

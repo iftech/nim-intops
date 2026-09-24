@@ -1,4 +1,4 @@
-nimTitle	gcc	intops/impl/intrinsics/gcc.html	module src/intops/impl/intrinsics/gcc		0
+nimTitle	gcc	intops/impl/intrinsics/gcc.html	module intops/impl/intrinsics/gcc		0
 nim	builtinOverflowingAdd	intops/impl/intrinsics/gcc.html#builtinOverflowingAdd,T,T,T	proc builtinOverflowingAdd[T: SomeInteger](a, b: T; res: var T): bool		15
 nim	builtinOverflowingSub	intops/impl/intrinsics/gcc.html#builtinOverflowingSub,T,T,T	proc builtinOverflowingSub[T: SomeInteger](a, b: T; res: var T): bool		20
 nim	overflowingAdd	intops/impl/intrinsics/gcc.html#overflowingAdd,T,T	proc overflowingAdd[T: SomeInteger](a, b: T): (T, bool)		27

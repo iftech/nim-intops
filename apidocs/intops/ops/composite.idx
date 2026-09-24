@@ -1,3 +1,3 @@
-nimTitle	composite	intops/ops/composite.html	module src/intops/ops/composite		0
+nimTitle	composite	intops/ops/composite.html	module intops/ops/composite		0
 nim	mulDoubleAdd2	intops/ops/composite.html#mulDoubleAdd2.t,T,T,T,T,T	template mulDoubleAdd2[T: uint64 | uint32](a, b, c, dHi, dLo: T): tuple[r2, r1, r0: T]		13
 nim	mulAcc	intops/ops/composite.html#mulAcc.t,T,T,T,T,T	template mulAcc[T: uint64 | uint32](t, u, v: T; a, b: T): tuple[t, u, v: T]		49

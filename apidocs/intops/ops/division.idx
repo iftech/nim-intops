@@ -1,4 +1,4 @@
-nimTitle	division	intops/ops/division.html	module src/intops/ops/division		0
+nimTitle	division	intops/ops/division.html	module intops/ops/division		0
 nim	narrowingDiv	intops/ops/division.html#narrowingDiv.t,uint64,uint64,uint64	template narrowingDiv(uHi, uLo, v: uint64): tuple[q, r: uint64]		14
 nim	narrowingDiv	intops/ops/division.html#narrowingDiv.t,uint32,uint32,uint32	template narrowingDiv(uHi, uLo, v: uint32): tuple[q, r: uint32]		32
 nimgrp	narrowingdiv	intops/ops/division.html#narrowingDiv-templates-all	template		14

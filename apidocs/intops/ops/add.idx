@@ -1,4 +1,4 @@
-nimTitle	add	intops/ops/add.html	module src/intops/ops/add		0
+nimTitle	add	intops/ops/add.html	module intops/ops/add		0
 nim	overflowingAdd	intops/ops/add.html#overflowingAdd.t,T,T	template overflowingAdd[T: SomeInteger](a, b: T): tuple[res: T, didOverflow: bool]		14
 nim	saturatingAdd	intops/ops/add.html#saturatingAdd.t,T,T	template saturatingAdd[T: SomeInteger](a, b: T): T		34
 nim	carryingAdd	intops/ops/add.html#carryingAdd.t,uint64,uint64,bool	template carryingAdd(a, b: uint64; carry: bool): tuple[res: uint64, carry: bool]		54
