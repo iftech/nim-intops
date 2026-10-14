@@ -14,7 +14,6 @@ jobs:
     secrets:
       EXTERNAL_SERVICE_TOKEN: ${{ secrets.BENCHER_API_TOKEN }}
     with:
-      nim-versions: '["version-1-6", "version-2-0", "version-2-2", "devel"]'
       test-command: |
         if [[ "$MATRIX_OS" == "windows" ]]; then
           powershell -c "irm https://bencher.dev/download/install-cli.ps1 | iex"

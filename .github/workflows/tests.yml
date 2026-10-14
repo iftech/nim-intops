@@ -12,4 +12,6 @@ jobs:
   tests:
     uses: status-im/nimbus-common-workflow/.github/workflows/common.yml@main
     with:
-      nim-versions: '["version-1-6", "version-2-0", "version-2-2", "devel"]'
+      test-command: |
+        nimble test_asan
+        nimble test

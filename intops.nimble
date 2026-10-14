@@ -1,3 +1,5 @@
+mode = ScriptMode.Verbose
+
 # Package
 
 version = "1.0.8"
@@ -8,26 +10,58 @@ srcDir = "src"
 
 # Dependencies
 
-requires "nim >= 1.6.16", "unittest2 >= 0.2.5"
+requires "nim >= 1.6.16", "unittest2 >= 0.3.0"
 
 import std/[os, sequtils, strformat, parseopt, json]
 
+let nimc = getEnv("NIMC", "nim") # Which nim compiler to use
+let lang = getEnv("NIMLANG", "c") # Which backend (c/cpp/js)
+let flags = getEnv("NIMFLAGS", "") # Extra flags for the compiler
+let verbose = getEnv("V", "") notin ["", "0"]
+let platform = getEnv("PLATFORM", "")
+let testArguments = [
+  "-d:intopsNoIntrinsics",
+  "-d:intopsNoInlineAsm",
+  "-d:intopsNoInlineC",
+  "-d:unittest2Static",
+  "-d:unittest2Static -d:intopsNoIntrinsics -d:intopsNoInlineAsm -d:intopsNoInlineC",
+]
+
+let cfg =
+  " --styleCheck:usages --styleCheck:error" &
+  (if verbose: "" else: " --verbosity:0") &
+  " --skipParentCfg --skipUserCfg --outdir:build -f " &
+  quoteShell("--nimcache:build/nimcache/$projectName")
+
+proc build(args, path: string) =
+  let archFlags =
+    commandLineParams().filterIt(it.startsWith("--cpu") or it.startsWith("--gcc"))
+  exec nimc & " " & lang & " " & cfg & " " & flags & " " & archFlags.join(" ") &
+    " " & args & " " & path
+
+proc run(args, path: string) =
+  build args & " -r", path
+
 task test, "Run tests":
-  let
-    archFlags =
-      commandLineParams().filterIt(it.startsWith("--cpu") or it.startsWith("--gcc"))
-    archFlagStr = archFlags.join(" ")
+  for args in testArguments:
+    run args & " --mm:refc", "tests/tintops"
+    run args & " --mm:orc", "tests/tintops"
 
-  for intopsFlagStr in [
-    "-d:intopsNoIntrinsics", "-d:intopsNoInlineAsm", "-d:intopsNoInlineC",
-    "-d:unittest2Static",
-    "-d:unittest2Static -d:intopsNoIntrinsics -d:intopsNoInlineAsm -d:intopsNoInlineC",
-  ]:
-    let flags = [intopsFlagStr, archFlagStr].join(" ")
-
-    echo fmt"# Flags: {flags}"
-
-    selfExec fmt"r {flags} tests/tintops.nim"
+task test_asan, "Run tests with ASAN":
+  if platform != "x86":
+    # https://clang.llvm.org/docs/AddressSanitizer.html
+    putEnv("ASAN_OPTIONS", "detect_leaks=0:detect_stack_use_after_return=1")
+    # https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html
+    putEnv("UBSAN_OPTIONS", "print_stacktrace=1")
+    let asanArgs =
+      " --mm:orc -d:useMalloc --cc:clang --debugger:native" &
+      " --passC:-fsanitize=address,undefined" &
+      " --passL:-fsanitize=address,undefined" &
+      " --passC:-fno-sanitize-recover=undefined" &
+      " --passC:-fno-sanitize-merge" &
+      " --passC:-fno-omit-frame-pointer"
+    for args in testArguments:
+      run args & asanArgs, "tests/tintops"
 
 task bench, "Run benchmarks":
   var

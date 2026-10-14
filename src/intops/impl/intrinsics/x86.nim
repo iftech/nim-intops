@@ -57,7 +57,7 @@ when cpuX86 and canUseIntrinsics:
 
     bool(borrow)
 
-when cpu64bit and cpuX86 and canUseIntrinsics:
+when cpu64Bit and cpuX86 and canUseIntrinsics:
   func builtinCarryingAdd*(
     carry: uint8, a, b: culonglong, res: ptr culonglong
   ): uint8 {.importc: "_addcarry_u64", x86_header.}
@@ -101,7 +101,7 @@ when cpu64bit and cpuX86 and canUseIntrinsics:
 
     bool(borrow)
 
-when cpu64bit and cpuX86 and compilerMsvc and canUseIntrinsics:
+when cpu64Bit and cpuX86 and compilerMsvc and canUseIntrinsics:
   func builtinWideningMul*(
     a, b: culonglong, hi: ptr culonglong
   ): uint64 {.importc: "_umul128", x86_header.}
